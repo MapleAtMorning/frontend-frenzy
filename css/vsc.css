@@ -1,0 +1,25 @@
+#code-holder{
+    width: 30vw;
+    height: 100vh;
+    background-color: rgb(27, 27, 27);
+    text-align: center;
+}
+
+#code-holder p{
+    margin: 0;
+    line-height: 100vh;
+    font-size: 3em;
+    color: lime;
+    cursor: pointer;
+}
+
+#info-holder{
+    width: 70vw;
+    height: 100vh;
+    background-color: rgb(46, 44, 44);
+
+}
+
+body{
+    display: flex;
+}

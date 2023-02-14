@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Frontend Frenzy</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/notepad.css">
+</head>
+<body>
+
+    <header>
+        <div id="top-header">
+            <img id="logo" height="26" src="imgs/Notepad_Vista_10.webp" alt=""> 
+            <p>Untitled - Notepad</p>
+        </div>
+        <div id="lower-header">
+            <p>File</p>
+            <p>Edit</p>
+            <p>Format</p>
+            <p>View</p>
+            <p>Help</p>
+        </div>
+    </header>
+
+    <main>    
+        <div id="info-holder">
+            <div id="code-holder">
+                <div>
+                    <img height="26" src="imgs/code-slash.svg" alt="">
+                    <p class="close">X</p>
+                    <p>Funny Hack Box</p>
+                </div>
+            </div>
+            <p>Bytes: <span id="bytesNum">0</span></p>
+        </div>
+    </main>
+
+    <script src="javascript/gameplay.js" type="module"></script>
+</body>
+</html>
