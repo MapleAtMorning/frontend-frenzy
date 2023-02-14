@@ -1,11 +1,11 @@
-#code-holder{
+#clicker{
     width: 30vw;
     height: 100vh;
     background-color: rgb(27, 27, 27);
     text-align: center;
 }
 
-#code-holder p{
+#clicker p{
     margin: 0;
     line-height: 100vh;
     font-size: 3em;
@@ -13,7 +13,7 @@
     cursor: pointer;
 }
 
-#info-holder{
+#info{
     width: 70vw;
     height: 100vh;
     background-color: rgb(46, 44, 44);

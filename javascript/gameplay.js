@@ -1,5 +1,8 @@
 import { addBytes, removeBytes } from "/javascript/data-config.js";
 
-let hackButton = document.getElementById("code-holder");
+let hackButton = document.getElementById("clicker");
 
-hackButton.addEventListener("click", addBytes(5));
+
+hackButton.addEventListener("click", function(){
+    addBytes(1)
+});

@@ -26,17 +26,48 @@
         </div>
     </header>
 
-    <main>    
-        <div id="info-holder">
-            <div id="code-holder">
-                <div>
+    <main>
+        <div class="h50">
+
+            <div id="clicker" class="window">
+                <div class="window-header">
                     <img height="26" src="imgs/code-slash.svg" alt="">
                     <p class="close">X</p>
-                    <p>Funny Hack Box</p>
+                    <p>Frontend Frenzy</p>
+                </div>
+            </div>  
+
+            <div id="stats">
+                <p>Bytes: <span id="bytesNum">0</span></p>
+                <p>Collection Rate: <span id="rateNum">10</span>s</p>
+                <p>Cash per collection: <span id="collectionNum">5</span>s</p>
+            </div>
+        </div>
+
+
+        <div class="h50">
+            <div id="shop" class="window">
+                <div class="window-header">
+                    <img height="26" src="imgs/cart.svg" alt="">
+                    <p class="close">X</p>
+                    <p>Shop Main</p>
+                </div>
+                <div id="shop-grid">
+                    <div class="grid-item">
+                        <div>
+                            <p>MonkeyType</p>
+                            <p>Increase income speed by 0.1s each time up to every 0.5s</p>
+                        </div>
+                    </div>
+                    <div class="grid-item">Test: 50</div>
+                    <div class="grid-item">Test: 50</div>
+                    <div class="grid-item">Test: 50</div>
+                    <div class="grid-item">Test: 50</div>
                 </div>
             </div>
-            <p>Bytes: <span id="bytesNum">0</span></p>
+
         </div>
+
     </main>
 
     <script src="javascript/gameplay.js" type="module"></script>
