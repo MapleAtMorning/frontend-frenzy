@@ -39,8 +39,8 @@
 
             <div id="stats">
                 <p>Bytes: <span id="bytesNum">0</span></p>
-                <p>Collection Rate: <span id="rateNum">10</span>s</p>
-                <p>Cash per collection: <span id="collectionNum">5</span>s</p>
+                <p>Cache Rate: Every <span id="rateNum">10</span>s</p>
+                <p>Bytes Per Cache: <span id="collectionNum">1</span></p>
             </div>
         </div>
 
@@ -53,16 +53,24 @@
                     <p>Shop Main</p>
                 </div>
                 <div id="shop-grid">
-                    <div class="grid-item">
+                    <div class="grid-item" id="loops">
                         <div>
-                            <p>MonkeyType</p>
-                            <p>Increase income speed by 0.1s each time up to every 0.5s</p>
+                            <h4>Loops: <span class="price">1</span></h4>
+                            <p>Decrease time between caches by 0.1ms, to a minimum of 1s</p>
                         </div>
                     </div>
-                    <div class="grid-item">Test: 50</div>
-                    <div class="grid-item">Test: 50</div>
-                    <div class="grid-item">Test: 50</div>
-                    <div class="grid-item">Test: 50</div>
+                    <div class="grid-item disabled" id="keyboard">
+                        <div>
+                            <h4>Keyboard Upgrade: <span class="price">200</span></h4>
+                            <p>Increase bytes per cache</p>
+                        </div>
+                    </div>
+                    <div class="grid-item">
+                        <div>
+                            <h4>MonkeyType: <span class="price">300</span></h4>
+                            <p>Increase the amount of bytes gained per click</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 

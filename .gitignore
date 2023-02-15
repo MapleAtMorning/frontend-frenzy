@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# hope this doesn't come to bite me in the ass - Maple
+*.db
