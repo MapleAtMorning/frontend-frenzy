@@ -140,7 +140,6 @@ main{margin-top: 1em;}
 
 .clickable{
     height: 100%;
-
 }
 
 p.disabled{
@@ -149,4 +148,5 @@ p.disabled{
 
 #shop-grid .disabled{
     background-color: #aaa;
+    cursor: default;
 }
