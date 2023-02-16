@@ -1,8 +1,21 @@
-let bytes = 0;
+let bytes = 1000;
 let upgradesLevel = [0, 0, 0]; // Loops, ifStatement, Monkey
 let upgradesPrice = [50, 200, 300];
-let upgradesData = [10, 1, 1];
+let upgradesData = [1, 1, 10];
 let bytesText = document.getElementById("bytesNum");
+
+export function saveData(){
+    let saveString;
+    for(i=0; i<upgradesLevel.length; i++){
+        saveString += upgradesLevel[i] + "b";
+    }
+}
+
+export function loadData(){
+
+};
+
+console.log(`${upgradesLevel}, ${upgradesPrice}, ${upgradesData}, ${bytes}`);
 
 
 export function bytesManager(cond, amount){
@@ -55,3 +68,7 @@ export function upgradeManager(array, cond, index, changeTo){ // Level, Price, D
 export function bytesCheck(){
     return bytes;
 };
+
+
+document.getElementById("shop").addEventListener("load", loadData());
+window.addEventListener('beforeunload', saveData);
