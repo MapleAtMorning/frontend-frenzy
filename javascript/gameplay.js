@@ -3,6 +3,10 @@ import { bytesManager, bytesCheck, upgradeManager} from "/javascript/data-config
 let hackButton = document.getElementById("clicker");
 let looped = false;
 
+hackButton.addEventListener("click", function(){
+    bytesManager("add", upgradeManager("level", "check", 2)+1);
+});
+
 function cacheLoop(){
     setTimeout(() => {
         bytesManager("add", upgradeManager("data", "check", 1));
@@ -10,10 +14,6 @@ function cacheLoop(){
         cacheLoop();
     }, (upgradeManager("data", "check", 0) * 1000));
 };
-
-hackButton.addEventListener("click", function(){
-    bytesManager("add", upgradeManager("level", "check", 2)+1);
-});
 
 document.addEventListener('click', function(event) {
     let clickTarget = event.target;

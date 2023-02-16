@@ -1,21 +1,44 @@
 let bytes = 1000;
 let upgradesLevel = [0, 0, 0]; // Loops, ifStatement, Monkey
 let upgradesPrice = [50, 200, 300];
-let upgradesData = [1, 1, 10];
+let upgradesData = [10, 1, 1];
 let bytesText = document.getElementById("bytesNum");
+let saveString = "";
 
 export function saveData(){
-    let saveString;
-    for(i=0; i<upgradesLevel.length; i++){
-        saveString += upgradesLevel[i] + "b";
-    }
+    for(let i=0; i<upgradesLevel.length; i++){
+        saveString += upgradesLevel[i] + ",";
+    };
+    saveString += "|";
+    for(let i=0; i<upgradesPrice.length; i++){
+        saveString += upgradesPrice[i] + ",";
+    };
+    saveString += "|";
+    for(let i=0; i<upgradesData.length; i++){
+        saveString += upgradesData[i] + ",";
+    };
+    saveString += "|" + bytes;
+    localStorage.setItem("saveData", JSON.stringify(saveString));
+    
 }
+saveData();
 
 export function loadData(){
+    saveString = localStorage.getItem("saveData");
 
+    let splitString = saveString.split(",");
+    splitString = saveString.split("|");
+    console.log(splitString);
+    
+
+    upgradesLevel = splitString[0].substring(0, splitString[0].length-1).split(",");
+    upgradesPrice= splitString[1].substring(0, splitString[1].length-1);
+    upgradesData = splitString[2].substring(0, splitString[2].length-1);
+    bytes = parseInt(splitString[3]);
+    console.log(bytes);
 };
 
-console.log(`${upgradesLevel}, ${upgradesPrice}, ${upgradesData}, ${bytes}`);
+// console.log(`${upgradesLevel}, ${upgradesPrice}, ${upgradesData}, ${bytes}`);
 
 
 export function bytesManager(cond, amount){
