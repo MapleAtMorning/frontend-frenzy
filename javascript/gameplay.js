@@ -1,13 +1,12 @@
-import { bytesManager, bytesCheck, upgradeManager} from "/javascript/data-config.js";
+import {bytesManager, bytesCheck, upgradeManager} from "/javascript/data-config.js";
 
 let hackButton = document.getElementById("clicker");
-let looped = false;
 
 hackButton.addEventListener("click", function(){
     bytesManager("add", upgradeManager("level", "check", 2)+1);
 });
 
-function cacheLoop(){
+export function cacheLoop(){
     setTimeout(() => {
         bytesManager("add", upgradeManager("data", "check", 1));
         console.log(upgradeManager("data", "check", 0), upgradeManager("data", "check", 1), upgradeManager("data", "check", 2))
@@ -44,14 +43,13 @@ document.addEventListener('click', function(event) {
 
         
         if(upgradeManager("level", "check", 0) >= 1 && clickTarget == document.getElementById('loops') ){ // Check if loops has been bought, if so then remove disabled and start the loop.
-            if(!looped){
+            if(document.getElementById("ifStatement").classList.contains("disabled")){
                 document.getElementById("ifStatement").classList.remove("disabled");
                 document.getElementById("stats-rate").classList.remove("disabled");
                 document.getElementById("stats-amount").classList.remove("disabled");
                 console.log("Loop Started");
-                looped = true;
                 cacheLoop();
-            }else if(looped){
+            }else if(!document.getElementById("ifStatement").classList.contains("disabled")){
                 let changeTo = parseFloat((upgradeManager("data", "check", 0) - 0.1).toFixed(1));
                 if(changeTo < 1){
                     changeTo = 1;
