@@ -108,6 +108,7 @@ function loadData(){
         document.getElementById("stats-rate").classList.remove("disabled");
         document.getElementById("stats-amount").classList.remove("disabled");
         document.getElementById("rate-num").innerHTML = upgradesData[0];
+        document.getElementById("amount-num").innerHTML = upgradesData[1];
         cacheLoop();
     }
 
