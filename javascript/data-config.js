@@ -79,6 +79,9 @@ function saveData(){
 }
 
 function loadData(){
+    if(localStorage.getItem("saveData") == null){
+        return;
+    }
     saveString = localStorage.getItem("saveData").replaceAll('"',"");
 
     let splitString = saveString.split(",");
