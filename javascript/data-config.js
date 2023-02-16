@@ -79,42 +79,40 @@ function saveData(){
 }
 
 function loadData(){
-    if(localStorage.getItem("saveData") == null){
-        return;
-    }
-    saveString = localStorage.getItem("saveData").replaceAll('"',"");
+    if(localStorage.getItem("saveData") !== null && localStorage.getItem("saveData") !== undefined){
+        saveString = localStorage.getItem("saveData").replaceAll('"',"");
 
-    let splitString = saveString.split(",");
-    splitString = saveString.split("|");
-    console.log(saveString)
-    console.log(splitString);
+        let splitString = saveString.split(",");
+        splitString = saveString.split("|");
+        console.log(saveString);
+        console.log(splitString);
+        
     
-
-    upgradesLevel = splitString[0].substring(0, splitString[0].length-1).split(",");
-    upgradesPrice = splitString[1].substring(0, splitString[1].length-1).split(",");
-    upgradesData = splitString[2].substring(0, splitString[2].length-1).split(",");
-
-    bytes = parseInt(splitString[3]);
-    bytesText.innerHTML = bytes;
-
-    function strToLoop(b){
-        for(let i = 0;i < b.length;i++){
-            b[i] = parseFloat(b[i]);
+        upgradesLevel = splitString[0].substring(0, splitString[0].length-1).split(",");
+        upgradesPrice = splitString[1].substring(0, splitString[1].length-1).split(",");
+        upgradesData = splitString[2].substring(0, splitString[2].length-1).split(",");
+    
+        bytes = parseInt(splitString[3]);
+        bytesText.innerHTML = bytes;
+    
+        function strToLoop(b){
+            for(let i = 0;i < b.length;i++){
+                b[i] = parseFloat(b[i]);
+            };
+        };
+        strToLoop(upgradesLevel);
+        strToLoop(upgradesPrice);
+        strToLoop(upgradesData);
+    
+        if(upgradeManager("level", "check", 0) >= 1){
+            document.getElementById("ifStatement").classList.remove("disabled");
+            document.getElementById("stats-rate").classList.remove("disabled");
+            document.getElementById("stats-amount").classList.remove("disabled");
+            document.getElementById("rate-num").innerHTML = upgradesData[0];
+            document.getElementById("amount-num").innerHTML = upgradesData[1];
+            cacheLoop();
         };
     };
-    strToLoop(upgradesLevel);
-    strToLoop(upgradesPrice);
-    strToLoop(upgradesData);
-
-    if(upgradeManager("level", "check", 0) >= 1){
-        document.getElementById("ifStatement").classList.remove("disabled");
-        document.getElementById("stats-rate").classList.remove("disabled");
-        document.getElementById("stats-amount").classList.remove("disabled");
-        document.getElementById("rate-num").innerHTML = upgradesData[0];
-        document.getElementById("amount-num").innerHTML = upgradesData[1];
-        cacheLoop();
-    }
-
 };
 
 export function bytesCheck(){
