@@ -1,4 +1,4 @@
-import {bytesManager, bytesCheck, upgradeManager} from "/javascript/data-config.js";
+import {bytesManager, bytesCheck, upgradeManager} from "./data-config.js";
 
 let hackButton = document.getElementById("clicker");
 

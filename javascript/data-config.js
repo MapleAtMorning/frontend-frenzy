@@ -1,4 +1,4 @@
-import { cacheLoop } from "/javascript/gameplay.js";
+import { cacheLoop } from "./gameplay.js";
 
 let bytes = 1000;
 let upgradesLevel = [0, 0, 0]; // Loops, ifStatement, Monkey
