@@ -1,6 +1,6 @@
 import { cacheLoop } from "../javascript/gameplay.js";
 
-let bytes = 1000;
+let bytes = 0;
 let upgradesLevel = [0, 0, 0]; // Loops, ifStatement, Monkey
 let upgradesPrice = [50, 200, 300];
 let upgradesData = [10, 1, 1];
@@ -78,14 +78,19 @@ function saveData(){
     
 }
 
+export function clearData(){
+    localStorage.clear();
+    localStorage.setItem("saveData", undefined);
+    loadData();
+}
+
 function loadData(){
-    if(localStorage.getItem("saveData") !== null && localStorage.getItem("saveData") !== undefined){
+    if(localStorage.getItem("saveData") !== null || localStorage.getItem("saveData") !== undefined){ // Figure out how to make this not run if data corrupts
         saveString = localStorage.getItem("saveData").replaceAll('"',"");
 
         let splitString = saveString.split(",");
         splitString = saveString.split("|");
         console.log(saveString);
-        console.log(splitString);
         
     
         upgradesLevel = splitString[0].substring(0, splitString[0].length-1).split(",");

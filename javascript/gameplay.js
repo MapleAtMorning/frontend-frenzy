@@ -1,9 +1,14 @@
-import {bytesManager, bytesCheck, upgradeManager} from "../javascript/data-config.js";
+import {bytesManager, bytesCheck, upgradeManager, clearData} from "../javascript/data-config.js";
 
 let hackButton = document.getElementById("clicker");
 
 hackButton.addEventListener("click", function(){
     bytesManager("add", upgradeManager("level", "check", 2)+1);
+});
+
+document.getElementById("format-clear").addEventListener("click", function(){
+    clearData();
+    alert("Cleared Data!");
 });
 
 export function cacheLoop(){
