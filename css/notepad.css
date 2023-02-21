@@ -89,7 +89,7 @@ main{margin-top: 1em;}
 }
 
 #clicker{
-    background-image: url(../imgs/trollface.png);
+    background-image: url(../imgs/Notepad_Vista_10.webp);
     background-size: 80%;
     background-repeat: no-repeat;
     background-position-x: center;
@@ -151,4 +151,23 @@ p.disabled{
 #shop-grid .disabled{
     background-color: #aaa;
     cursor: default;
+}
+
+@media only screen and (max-width: 800px) {
+    .h50{
+        display: block;
+    }
+    #stats{
+        padding: 2em;
+    }
+    #clicker, #shop{
+        margin: auto;
+        max-width: 90%;
+    }
+    #shop{
+        margin-bottom: 1em;
+    }
+    #shop-grid{
+        grid-template-columns: 1fr;
+    }
 }
