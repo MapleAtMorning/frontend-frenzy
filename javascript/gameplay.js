@@ -1,4 +1,4 @@
-import {bytesManager, bytesCheck, upgradeManager, clearData} from "../javascript/data-config.js";
+import {bytesManager, bytesCheck, upgradeManager, priceManager, clearData} from "../javascript/data-config.js";
 
 let hackButton = document.getElementById("clicker");
 
@@ -25,8 +25,6 @@ document.addEventListener('click', function(event) {
 
 	if (clickTarget.matches('.grid-item') && !clickTarget.matches('.disabled')) {
         let arrayIndex;
-        // let price = parseInt(clickTarget.getElementsByClassName('price')[0].innerHTML); // Get the number from the price class in the grid item you clicked
-
         if(clickTarget == document.getElementById('loops')){                     
             arrayIndex = 0;
         }else if(clickTarget == document.getElementById('ifStatement')){
@@ -37,15 +35,15 @@ document.addEventListener('click', function(event) {
             alert("You somehow clicked an upgrade that doesn't exist");
             return;
         };
-        upgradeManager("level", "add", arrayIndex);
-
+        
         
         let price = upgradeManager("price", "check", arrayIndex)
         if(bytes < price){ // Simple bytes check to see if you have enough to buy the upgrade.
             alert("Not enough money");
             return;
         };
-
+        upgradeManager("level", "add", arrayIndex);
+        
         
         if(upgradeManager("level", "check", 0) >= 1 && clickTarget == document.getElementById('loops') ){ // Check if loops has been bought, if so then remove disabled and start the loop.
             if(document.getElementById("ifStatement").classList.contains("disabled")){
@@ -73,6 +71,7 @@ document.addEventListener('click', function(event) {
         
         
         bytesManager("sub", price); // Money removal is down here so if a nonfunctional upgrade is clicked somehow money isn't taken.
+        priceManager(0.1, arrayIndex, clickTarget.getElementsByClassName('price')[0]);
 	};
 
 });

@@ -4,16 +4,22 @@ let bytes = 0;
 let upgradesLevel = [0, 0, 0]; // Loops, ifStatement, Monkey
 let upgradesPrice = [50, 200, 300];
 let upgradesData = [10, 1, 1];
+let noSave = false;
 let bytesText = document.getElementById("bytesNum");
 let saveString = "";
 
 // console.log(`${upgradesLevel}, ${upgradesPrice}, ${upgradesData}, ${bytes}`);
 
+export function priceManager(amount, index, clicked){
+    upgradesPrice[index] += Math.ceil(upgradesPrice[index]*(amount)); 
+    console.log[upgradesPrice[index]];
+    clicked.innerHTML = upgradesPrice[index];
+}
 
 export function bytesManager(cond, amount){
     if(cond == "add"){
         if(!isNaN(amount) && amount >= 1){
-            bytes += amount;;
+            bytes += amount;
         };
     }else if(cond == "sub"){
         if(!isNaN(amount) && bytes >= amount){
@@ -28,7 +34,6 @@ export function upgradeManager(array, cond, index, changeTo){ // Level, Price, D
     if(array == "level"){
         if(cond == "add"){
             upgradesLevel[index]++;
-            
         }else if(cond == "check"){
             return upgradesLevel[index];
         };
@@ -44,7 +49,6 @@ export function upgradeManager(array, cond, index, changeTo){ // Level, Price, D
     }else if(array == "data"){
         if(cond == "add"){
             upgradesData[index]++;
-    
         }else if(cond == "change"){
             upgradesData[index] = changeTo;
             
@@ -60,7 +64,12 @@ export function upgradeManager(array, cond, index, changeTo){ // Level, Price, D
 // Create a string that can be saved on the users machine. This string is broken up into different arrays using pipes and commas.
 // These later get split and decompiled into proper arrays on load.
 // This is because JavaScript hates everyone and doesn't like saving arrays. Thanks JS!
-function saveData(){ 
+function saveData(clear){ 
+    if(clear == "clear" || noSave == true){
+        localStorage.setItem("saveData", "clear");
+        noSave = true;
+        return;
+    };
     saveString = "";
     for(let i=0; i<upgradesLevel.length; i++){
         saveString += upgradesLevel[i] + ",";
@@ -76,16 +85,16 @@ function saveData(){
     saveString += "|" + bytesCheck();
     localStorage.setItem("saveData", JSON.stringify(saveString));
     
-}
+};
 
-export function clearData(){
-    localStorage.clear();
-    localStorage.setItem("saveData", undefined);
-    loadData();
-}
+export function clearData(){;
+    saveData("clear");
+    location.reload();
+};
 
 function loadData(){
-    if(localStorage.getItem("saveData") !== null || localStorage.getItem("saveData") !== undefined){ // Figure out how to make this not run if data corrupts
+    if(localStorage.getItem("saveData") != null && localStorage.getItem("saveData") != undefined && localStorage.getItem("saveData") != "clear" ){ // Figure out how to make this not run if data corrupts
+        console.log("Passed")
         saveString = localStorage.getItem("saveData").replaceAll('"',"");
 
         let splitString = saveString.split(",");
@@ -117,6 +126,12 @@ function loadData(){
             document.getElementById("amount-num").innerHTML = upgradesData[1];
             cacheLoop();
         };
+
+        for(let i=0; i < upgradesPrice.length; i++){
+            let priceHTML = document.getElementsByClassName("price");
+            priceHTML[i].innerHTML = upgradesPrice[i]; 
+        }
+
     };
 };
 
