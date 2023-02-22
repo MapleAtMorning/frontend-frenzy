@@ -53,7 +53,7 @@ document.addEventListener('click', function(event) {
                 console.log("Loop Started");
                 cacheLoop();
             }else if(!document.getElementById("ifStatement").classList.contains("disabled")){
-                let changeTo = parseFloat((upgradeManager("data", "check", 0) - 0.1).toFixed(1));
+                let changeTo = parseFloat((upgradeManager("data", "check", 0) - 0.25).toFixed(2));
                 if(changeTo < 1){
                     changeTo = 1;
                     clickTarget.classList.add("disabled")
@@ -66,6 +66,11 @@ document.addEventListener('click', function(event) {
         if(upgradeManager("level", "check", 1) >= 1 && clickTarget == document.getElementById('ifStatement') ){
             upgradeManager("data", "add", 1);
             document.getElementById("amount-num").innerHTML = upgradeManager("data", "check", 1);
+        };
+
+        if(upgradeManager("level", "check", 2) >= 0 && clickTarget == document.getElementById('monkey') ){
+            upgradeManager("data", "add", 2);
+            document.getElementById("click-num").innerHTML = upgradeManager("data", "check", 2);
         };
 
         

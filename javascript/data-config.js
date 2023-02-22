@@ -1,6 +1,6 @@
 import { cacheLoop } from "../javascript/gameplay.js";
 
-let bytes = 0;
+let bytes = 1000;
 let upgradesLevel = [0, 0, 0]; // Loops, ifStatement, Monkey
 let upgradesPrice = [50, 200, 300];
 let upgradesData = [10, 1, 1];
