@@ -152,3 +152,22 @@ p.disabled{
     background-color: #aaa;
     cursor: default;
 }
+
+@media only screen and (max-width: 800px) {
+    .h50{
+        display: block;
+    }
+    #stats{
+        padding: 2em;
+    }
+    #clicker, #shop{
+        margin: auto;
+        max-width: 90%;
+    }
+    #shop{
+        margin-bottom: 1em;
+    }
+    #shop-grid{
+        grid-template-columns: 1fr;
+    }
+}
