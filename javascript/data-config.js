@@ -108,6 +108,8 @@ function loadData(){
     
         bytes = parseInt(splitString[3]);
         bytesText.innerHTML = bytes;
+
+        document.getElementById("click-num").innerHTML = upgradesData[2];
     
         function strToLoop(b){
             for(let i = 0;i < b.length;i++){
@@ -117,7 +119,7 @@ function loadData(){
         strToLoop(upgradesLevel);
         strToLoop(upgradesPrice);
         strToLoop(upgradesData);
-    
+
         if(upgradeManager("level", "check", 0) >= 1){
             document.getElementById("ifStatement").classList.remove("disabled");
             document.getElementById("stats-rate").classList.remove("disabled");
